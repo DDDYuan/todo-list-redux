@@ -1,9 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
+import User from "./User";
+import Todos from "./Todos";
 
-class App extends Component {
-  render() {
-    return <div />;
-  }
-}
+const App = () => (
+  <div>
+    <User />
+    <Todos />
+  </div>
+);
 
 export default App;
