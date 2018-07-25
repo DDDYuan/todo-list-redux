@@ -1,11 +1,4 @@
-const initialState = [
-  {
-    id: 1,
-    value: "test todo",
-    visible: true,
-    checked: false
-  }
-];
+const initialState = [];
 
 export default function todos(currentState = initialState, action) {
   switch (action.type) {
@@ -18,6 +11,7 @@ export default function todos(currentState = initialState, action) {
         {
           id: Date.now(),
           value: action.text,
+          editable: false,
           visible: true,
           checked: false
         }
@@ -26,6 +20,12 @@ export default function todos(currentState = initialState, action) {
     case "EDIT":
       return currentState.map(
         todo => (todo.id === action.id ? { ...todo, value: action.text } : todo)
+      );
+
+    case "EDIT_S":
+      return currentState.map(
+        todo =>
+          todo.id === action.id ? { ...todo, editable: action.status } : todo
       );
 
     case "REMOVE":

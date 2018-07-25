@@ -1,23 +1,11 @@
-import React from "react";
+import React, { PureComponent } from "react";
+import TodoItem from "./TodoItem";
 
-const TodoList = ({ todosToBeShown, actions }) => {
-  const { checkTodo, removeTodo, editTodo } = actions;
-  return todosToBeShown.map(todo => (
-    <div key={todo.id}>
-      <input
-        type="checkbox"
-        defaultChecked={todo.checked}
-        onChange={() => checkTodo(todo.id)}
-      />
-      <input
-        type="text"
-        defaultValue={todo.value}
-        readOnly="true"
-        disabled={todo.checked}
-      />
-      <button onClick={() => removeTodo(todo.id)}>×</button>
-    </div>
-  ));
-};
-
-export default TodoList;
+export default class TodoList extends PureComponent {
+  render() {
+    const { todos, actions } = this.props;
+    return todos.map(todo => (
+      <TodoItem key={todo.id} todo={todo} {...actions} />
+    ));
+  }
+}

@@ -1,10 +1,31 @@
-import React from "react";
+import React, { PureComponent } from "react";
 
-const AddTodoForm = ({ actions }) => (
-  <div>
-    <input type="text" placeholder="Input To Add a Item" />
-    <button onClick={() => actions.addTodo("123")}>ADD</button>
-  </div>
-);
+export default class AddTodoForm extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.input = null;
+  }
 
-export default AddTodoForm;
+  render() {
+    const { addTodo } = this.props;
+    return (
+      <div>
+        <input
+          type="text"
+          placeholder="Input To Add a Item"
+          ref={node => (this.input = node)}
+        />
+        <button
+          onClick={() => {
+            if (this.input.value.trim().length > 0) {
+              addTodo(this.input.value.trim());
+            }
+            this.input.value = "";
+          }}
+        >
+          ADD
+        </button>
+      </div>
+    );
+  }
+}

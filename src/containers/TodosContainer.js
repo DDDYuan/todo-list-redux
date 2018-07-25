@@ -1,23 +1,19 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { checkTodo, removeTodo, editTodo } from "../actions";
-import TodoList from "../components/TodoList";
+import * as Actions from "../actions";
+import Todos from "../components/Todos";
 
 const mapStateToProps = state => ({
   todosToBeShown: state.todos.filter(todo => todo.visible === true)
 });
 
 const mapDispatchToProps = dispatch => ({
-  actions: {
-    checkTodo: bindActionCreators(checkTodo, dispatch),
-    removeTodo: bindActionCreators(removeTodo, dispatch),
-    editTodo: bindActionCreators(editTodo, dispatch)
-  }
+  actions: bindActionCreators(Actions, dispatch)
 });
 
 const TodoListContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(TodoList);
+)(Todos);
 
 export default TodoListContainer;

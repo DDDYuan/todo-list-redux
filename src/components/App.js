@@ -1,11 +1,9 @@
 import React from "react";
-import User from "./User";
-import Todos from "./Todos";
+import TodosContainer from "../containers/TodosContainer";
 
 const App = () => (
   <div>
-    <User />
-    <Todos />
+    <TodosContainer />
   </div>
 );
 

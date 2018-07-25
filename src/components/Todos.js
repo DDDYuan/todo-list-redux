@@ -1,11 +1,13 @@
 import React from "react";
-import TodoListContainer from "../containers/TodoListContainer";
-import AddTodoFormContainer from "../containers/AddTodoFormContainer";
+import TodoList from "./TodoList";
+import AddTodoForm from "./AddTodoForm";
+import FilterForm from "./FilterForm";
 
-const Todos = () => (
+const Todos = ({ todosToBeShown, actions }) => (
   <div>
-    <TodoListContainer />
-    <AddTodoFormContainer />
+    <FilterForm {...actions} />
+    <TodoList todos={todosToBeShown} actions={actions} />
+    <AddTodoForm {...actions} />
   </div>
 );
 
