@@ -9,8 +9,9 @@ export default class FilterForm extends PureComponent {
   render() {
     const { filterTodo } = this.props;
     return (
-      <div>
+      <div className="row input-group mb-3">
         <input
+          className="col-12 form-control"
           type="text"
           placeholder="Input To Filter Todos"
           ref={node => (this.input = node)}

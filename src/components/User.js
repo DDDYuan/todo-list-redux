@@ -3,7 +3,7 @@ import Avatar from "./Avatar";
 import UserInfo from "./UserInfo";
 
 const User = ({ avatar, name }) => (
-  <div>
+  <div className="container row align-items-center mb-5 border border-success">
     <Avatar avatar={avatar} />
     <UserInfo name={name} />
   </div>

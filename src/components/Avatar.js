@@ -4,8 +4,8 @@ export default class Avatar extends PureComponent {
   render() {
     const { avatar } = this.props;
     return (
-      <div>
-        <img src={avatar} alt={avatar} />
+      <div className="col-4">
+        <img src={avatar} alt={avatar} className="rounded" />
       </div>
     );
   }

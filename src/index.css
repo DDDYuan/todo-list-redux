@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#root {
+  padding-top: 100px;
+  width: 800px;
+  margin: auto;
+}
+
+input:disabled {
+  text-decoration: line-through;
+}
+
+img {
+  margin: 20px;
+  min-width: 100px;
+  min-height: 100px;
+}

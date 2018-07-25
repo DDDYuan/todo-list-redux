@@ -5,7 +5,8 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import reducers from "./reducers";
 import registerServiceWorker from "./registerServiceWorker";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 const store = createStore(reducers);
 ReactDOM.render(

@@ -14,13 +14,16 @@ export default class TodoItem extends PureComponent {
       editableStatus
     } = this.props;
     return (
-      <div>
+      <div className="input-group mb-1">
+        <div className="input-group-prepend input-group-text">
+          <input
+            type="checkbox"
+            defaultChecked={todo.checked}
+            onChange={() => checkTodo(todo.id)}
+          />
+        </div>
         <input
-          type="checkbox"
-          defaultChecked={todo.checked}
-          onChange={() => checkTodo(todo.id)}
-        />
-        <input
+          className="form-control"
           type="text"
           defaultValue={todo.value}
           readOnly={!todo.editable}
@@ -32,7 +35,14 @@ export default class TodoItem extends PureComponent {
             editableStatus(todo.id, false);
           }}
         />
-        <button onClick={() => removeTodo(todo.id)}>×</button>
+        <div className="input-group-append">
+          <button
+            className="btn btn-danger"
+            onClick={() => removeTodo(todo.id)}
+          >
+            ×
+          </button>
+        </div>
       </div>
     );
   }

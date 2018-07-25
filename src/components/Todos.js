@@ -4,7 +4,7 @@ import AddTodoForm from "./AddTodoForm";
 import FilterForm from "./FilterForm";
 
 const Todos = ({ todosToBeShown, actions }) => (
-  <div>
+  <div className="container">
     <FilterForm {...actions} />
     <TodoList todos={todosToBeShown} actions={actions} />
     <AddTodoForm {...actions} />
