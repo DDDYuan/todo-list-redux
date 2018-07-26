@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
+import { goBack } from "connected-react-router";
 
-export const TodoItemInfo = ({ history, todo }) => {
+export const TodoItemInfo = ({ todo, goBack }) => {
   if (todo)
     return (
       <div className="container justify-content-center text-center">
@@ -25,7 +26,7 @@ export const TodoItemInfo = ({ history, todo }) => {
           </div>
           <button
             className="btn btn-block btn-outline-primary"
-            onClick={() => history.goBack()}
+            onClick={goBack}
           >
             GO BACK
           </button>
@@ -35,6 +36,9 @@ export const TodoItemInfo = ({ history, todo }) => {
   return <h1 className="text-center">只能通过点击TODO进入此页面！</h1>;
 };
 
-export default connect(state => ({
-  todo: state.todos.find(todo => todo.id === state.detail)
-}))(TodoItemInfo);
+export default connect(
+  state => ({
+    todo: state.todos.find(todo => todo.id === state.detail)
+  }),
+  { goBack }
+)(TodoItemInfo);

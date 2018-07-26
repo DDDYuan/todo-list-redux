@@ -1,6 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const UserInfo = ({ name }) => (
+export const UserInfo = ({ name }) => (
   <div className="col row">
     <h4 className="col-6">
       <span className="badge badge-info">USERNAME</span>
@@ -13,4 +14,4 @@ const UserInfo = ({ name }) => (
   </div>
 );
 
-export default UserInfo;
+export default connect(state => ({ name: state.user.name }))(UserInfo);

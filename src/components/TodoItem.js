@@ -1,13 +1,22 @@
 import React from "react";
+import { connect } from "react-redux";
+import { push } from "connected-react-router";
+import {
+  checkTodo,
+  removeTodo,
+  editTodo,
+  editableStatus,
+  setDetailTodo
+} from "../actions/index";
 
-const TodoItem = ({
+export const TodoItem = ({
   todo,
   checkTodo,
   removeTodo,
   editTodo,
   editableStatus,
   setDetailTodo,
-  history
+  push
 }) => {
   let input;
 
@@ -41,7 +50,7 @@ const TodoItem = ({
         onBlur={onSave}
         onClick={() => {
           setDetailTodo(todo.id);
-          history.push("/todo");
+          push("/todo");
         }}
       />
       <button
@@ -62,4 +71,14 @@ const TodoItem = ({
   );
 };
 
-export default TodoItem;
+export default connect(
+  null,
+  {
+    push,
+    checkTodo,
+    removeTodo,
+    editTodo,
+    editableStatus,
+    setDetailTodo
+  }
+)(TodoItem);

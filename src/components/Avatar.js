@@ -1,9 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const Avatar = ({ avatar }) => (
+export const Avatar = ({ avatar }) => (
   <div className="col-2">
     <img src={avatar} alt={avatar} className="rounded" />
   </div>
 );
 
-export default Avatar;
+export default connect(state => ({ avatar: state.user.avatar }))(Avatar);

@@ -1,6 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
+import { filterTodo } from "../actions/index";
 
-const FilterForm = ({ filterTodo }) => {
+export const FilterForm = ({ filterTodo }) => {
   let input;
   return (
     <div className="row input-group mb-3">
@@ -15,4 +17,7 @@ const FilterForm = ({ filterTodo }) => {
   );
 };
 
-export default FilterForm;
+export default connect(
+  null,
+  { filterTodo }
+)(FilterForm);

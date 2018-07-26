@@ -1,12 +1,13 @@
 import React from "react";
 import TodoItem from "./TodoItem";
+import { connect } from "react-redux";
 
-const TodoList = ({ todos, actions, history }) => (
+export const TodoList = ({ todos }) => (
   <div className="row input-group mb-3">
-    {todos.map(todo => (
-      <TodoItem key={todo.id} todo={todo} {...actions} history={history} />
-    ))}
+    {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
   </div>
 );
 
-export default TodoList;
+export default connect(state => ({
+  todos: state.todos.filter(todo => todo.visible === true)
+}))(TodoList);

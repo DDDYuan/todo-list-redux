@@ -1,6 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
+import { addTodo } from "../actions/index";
 
-const AddTodoForm = ({ addTodo }) => {
+export const AddTodoForm = ({ addTodo }) => {
   let input;
   const onAdd = () => {
     if (input.value.trim().length > 0) {
@@ -29,4 +31,7 @@ const AddTodoForm = ({ addTodo }) => {
   );
 };
 
-export default AddTodoForm;
+export default connect(
+  null,
+  { addTodo }
+)(AddTodoForm);
