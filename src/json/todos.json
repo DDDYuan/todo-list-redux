@@ -1,9 +1,1 @@
-[
-  {
-    "id": 1,
-    "value": "todo 1",
-    "editable": false,
-    "checked": false,
-    "visible": true
-  }
-]
+["todo 1", "todo 2", "todo3"]
