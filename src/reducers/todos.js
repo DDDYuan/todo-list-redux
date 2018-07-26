@@ -20,7 +20,14 @@ export default function todos(currentState = initialState, action) {
 
     case "EDIT":
       return currentState.map(
-        todo => (todo.id === action.id ? { ...todo, value: action.text } : todo)
+        todo =>
+          todo.id === action.id
+            ? {
+                ...todo,
+                value: action.text,
+                timestamp: new Date().toLocaleString()
+              }
+            : todo
       );
 
     case "EDIT_S":

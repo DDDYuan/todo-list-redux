@@ -33,7 +33,7 @@ const TodoItem = ({
         type="text"
         defaultValue={todo.value}
         readOnly={!todo.editable}
-        disabled={todo.checked}
+        style={todo.checked ? { textDecoration: "line-through" } : {}}
         ref={node => (input = node)}
         onKeyDown={e => {
           if (e.keyCode === 13) onSave();

@@ -10,10 +10,6 @@ body {
   margin: auto;
 }
 
-input:disabled {
-  text-decoration: line-through;
-}
-
 img {
   margin: 20px;
   min-width: 50px;
