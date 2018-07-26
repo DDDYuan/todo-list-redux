@@ -56,8 +56,10 @@ export const TodoItem = ({
       <button
         className="btn btn-info rounded-0"
         onClick={() => {
-          if (!todo.checked) editableStatus(todo.id, true);
-          input.focus();
+          if (!todo.checked) {
+            editableStatus(todo.id, true);
+            input.focus();
+          }
         }}
       >
         EDIT
