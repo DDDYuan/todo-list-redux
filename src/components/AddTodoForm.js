@@ -17,7 +17,7 @@ const AddTodoForm = ({ addTodo }) => {
             if (input.value.trim().length > 0) {
               addTodo(input.value.trim());
             }
-            this.input.value = "";
+            input.value = "";
           }}
         >
           ADD
