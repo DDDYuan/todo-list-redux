@@ -9,7 +9,11 @@ const TodoItem = ({
 }) => {
   let input;
   const onSave = () => {
-    editTodo(todo.id, input.value);
+    if (input.value.trim().length > 0) {
+      editTodo(todo.id, input.value);
+    } else {
+      input.value = todo.value;
+    }
     editableStatus(todo.id, false);
   };
   return (
@@ -28,12 +32,20 @@ const TodoItem = ({
         readOnly={!todo.editable}
         disabled={todo.checked}
         ref={node => (input = node)}
-        onDoubleClick={() => editableStatus(todo.id, true)}
         onKeyDown={e => {
           if (e.keyCode === 13) onSave();
         }}
         onBlur={onSave}
       />
+      <button
+        className="btn btn-info rounded-0"
+        onClick={() => {
+          if (!todo.checked) editableStatus(todo.id, true);
+          input.focus();
+        }}
+      >
+        EDIT
+      </button>
       <div className="input-group-append">
         <button className="btn btn-danger" onClick={() => removeTodo(todo.id)}>
           ×
