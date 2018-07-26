@@ -5,9 +5,12 @@ const TodoItem = ({
   checkTodo,
   removeTodo,
   editTodo,
-  editableStatus
+  editableStatus,
+  setDetailTodo,
+  history
 }) => {
   let input;
+
   const onSave = () => {
     if (input.value.trim().length > 0) {
       editTodo(todo.id, input.value);
@@ -36,6 +39,10 @@ const TodoItem = ({
           if (e.keyCode === 13) onSave();
         }}
         onBlur={onSave}
+        onClick={() => {
+          setDetailTodo(todo.id);
+          history.push("/todo");
+        }}
       />
       <button
         className="btn btn-info rounded-0"

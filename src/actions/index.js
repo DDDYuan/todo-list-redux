@@ -4,3 +4,4 @@ export const editableStatus = (id, status) => ({ type: "EDIT_S", id, status });
 export const removeTodo = id => ({ type: "REMOVE", id });
 export const checkTodo = id => ({ type: "CHECK", id });
 export const filterTodo = filter => ({ type: "FILTER", filter });
+export const setDetailTodo = id => ({ type: "SET", id });
