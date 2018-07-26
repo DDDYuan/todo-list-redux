@@ -8,6 +8,10 @@ const TodoItem = ({
   editableStatus
 }) => {
   let input;
+  const onSave = () => {
+    editTodo(todo.id, input.value);
+    editableStatus(todo.id, false);
+  };
   return (
     <div className="input-group mb-1">
       <div className="input-group-prepend input-group-text">
@@ -25,10 +29,10 @@ const TodoItem = ({
         disabled={todo.checked}
         ref={node => (input = node)}
         onDoubleClick={() => editableStatus(todo.id, true)}
-        onBlur={() => {
-          editTodo(todo.id, input.value);
-          editableStatus(todo.id, false);
+        onKeyDown={e => {
+          if (e.keyCode === 13) onSave();
         }}
+        onBlur={onSave}
       />
       <div className="input-group-append">
         <button className="btn btn-danger" onClick={() => removeTodo(todo.id)}>
