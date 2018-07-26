@@ -1,11 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
-import reducers from "./reducers";
-import registerServiceWorker from "./registerServiceWorker";
-
 import { createBrowserHistory } from "history";
 import {
   routerMiddleware,
@@ -13,6 +9,11 @@ import {
   ConnectedRouter
 } from "connected-react-router";
 import { Route, Switch } from "react-router";
+import registerServiceWorker from "./registerServiceWorker";
+
+import App from "./components/App";
+import TodoItemInfo from "./components/TodoItemInfo";
+import reducers from "./reducers";
 
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
@@ -29,7 +30,7 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
       <Switch>
         <Route exact path="/" component={App} />
-        <Route component={App} />
+        <Route path="/todos/:id" component={TodoItemInfo} />
       </Switch>
     </ConnectedRouter>
   </Provider>,

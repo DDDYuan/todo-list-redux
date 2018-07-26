@@ -13,7 +13,8 @@ export default function todos(currentState = initialState, action) {
           value: action.text,
           editable: false,
           visible: true,
-          checked: false
+          checked: false,
+          timestamp: new Date().toLocaleString()
         }
       ];
 
