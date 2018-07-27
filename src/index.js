@@ -30,7 +30,7 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
       <Switch>
         <Route exact path="/" component={App} />
-        <Route path="/todo" component={TodoItemInfo} />
+        <Route path="/todo/:id" component={TodoItemInfo} />
       </Switch>
     </ConnectedRouter>
   </Provider>,

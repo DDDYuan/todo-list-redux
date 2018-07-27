@@ -37,8 +37,11 @@ export const TodoItemInfo = ({ todo, goBack }) => {
 };
 
 export default connect(
-  state => ({
-    todo: state.todos.find(todo => todo.id === state.detail)
-  }),
+  (state, match) => {
+    const id = parseInt(match.match.params.id, 10);
+    return {
+      todo: state.todos.find(todo => todo.id === id)
+    };
+  },
   { goBack }
 )(TodoItemInfo);

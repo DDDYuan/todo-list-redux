@@ -5,8 +5,7 @@ import {
   checkTodo,
   removeTodo,
   editTodo,
-  editableStatus,
-  setDetailTodo
+  editableStatus
 } from "../actions/index";
 
 export const TodoItem = ({
@@ -15,7 +14,6 @@ export const TodoItem = ({
   removeTodo,
   editTodo,
   editableStatus,
-  setDetailTodo,
   push
 }) => {
   let input;
@@ -48,10 +46,7 @@ export const TodoItem = ({
           if (e.keyCode === 13) onSave();
         }}
         onBlur={onSave}
-        onClick={() => {
-          setDetailTodo(todo.id);
-          push("/todo");
-        }}
+        onClick={() => push(`/todo/${todo.id}`)}
       />
       <button
         className="btn btn-info rounded-0"
@@ -80,7 +75,6 @@ export default connect(
     checkTodo,
     removeTodo,
     editTodo,
-    editableStatus,
-    setDetailTodo
+    editableStatus
   }
 )(TodoItem);
