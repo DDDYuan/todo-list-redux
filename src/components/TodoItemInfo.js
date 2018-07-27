@@ -33,7 +33,7 @@ export const TodoItemInfo = ({ todo, goBack }) => {
         </div>
       </div>
     );
-  return <h1 className="text-center">只能通过点击TODO进入此页面！</h1>;
+  return <h1 className="text-center">THIS TODO IS NOT FOUND！</h1>;
 };
 
 export default connect(
