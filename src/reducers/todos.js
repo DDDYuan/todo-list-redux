@@ -52,5 +52,8 @@ export default function todos(currentState = initialState, action) {
             ? { ...todo, visible: true }
             : { ...todo, visible: false }
       );
+
+    case "INIT":
+      return action.list;
   }
 }
