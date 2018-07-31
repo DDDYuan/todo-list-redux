@@ -28,12 +28,14 @@ export const TodoItem = ({
   };
   return (
     <div className="input-group mb-1">
-      <div className="input-group-prepend input-group-text">
-        <input
-          type="checkbox"
-          defaultChecked={todo.checked}
-          onChange={() => checkTodo(todo.id)}
-        />
+      <div className="input-group-prepend">
+        <div className="input-group-text">
+          <input
+            type="checkbox"
+            defaultChecked={todo.checked}
+            onChange={() => checkTodo(todo.id)}
+          />
+        </div>
       </div>
       <input
         className="form-control"
