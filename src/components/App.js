@@ -1,14 +1,12 @@
 import React, { PureComponent } from "react";
 import Todos from "./Todos";
 import User from "./User";
-import { initTodoList } from "../actions";
+import { getTodoList } from "../actions";
 import { connect } from "react-redux";
 
 export class App extends PureComponent {
   componentDidMount() {
-    fetch("/api/todos")
-      .then(response => response.json())
-      .then(json => this.props.initTodoList(json));
+    this.props.getTodoList();
   }
 
   render() {
@@ -24,5 +22,5 @@ export class App extends PureComponent {
 
 export default connect(
   null,
-  { initTodoList }
+  { getTodoList }
 )(App);
