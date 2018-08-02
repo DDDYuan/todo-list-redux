@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addTodo } from "../actions/index";
+import { saveTodo } from "../actions/index";
 
-export const AddTodoForm = ({ addTodo }) => {
+export const AddTodoForm = ({ saveTodo }) => {
   let input;
   const onAdd = () => {
     if (input.value.trim().length > 0) {
-      addTodo(input.value.trim());
+      saveTodo(input.value.trim());
     }
     input.value = "";
   };
@@ -33,5 +33,5 @@ export const AddTodoForm = ({ addTodo }) => {
 
 export default connect(
   null,
-  { addTodo }
+  { saveTodo }
 )(AddTodoForm);

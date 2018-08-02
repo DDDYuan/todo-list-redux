@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import {
   checkTodo,
-  removeTodo,
+  deleteTodo,
   editTodo,
   editableStatus
 } from "../actions/index";
@@ -12,7 +12,7 @@ import TaskItem from "./TaskItem";
 export const TodoItem = ({
   todo,
   checkTodo,
-  removeTodo,
+  deleteTodo,
   editTodo,
   editableStatus,
   push
@@ -66,7 +66,7 @@ export const TodoItem = ({
         <div className="input-group-append">
           <button
             className="btn btn-danger"
-            onClick={() => removeTodo(todo.id)}
+            onClick={() => deleteTodo(todo.id)}
           >
             ×
           </button>
@@ -82,7 +82,7 @@ export default connect(
   {
     push,
     checkTodo,
-    removeTodo,
+    deleteTodo,
     editTodo,
     editableStatus
   }

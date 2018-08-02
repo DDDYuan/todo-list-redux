@@ -1,4 +1,4 @@
-const initialState = [];
+const initialState = [{ tasks: [] }];
 
 export default function todos(currentState = initialState, action) {
   switch (action.type) {
@@ -6,17 +6,7 @@ export default function todos(currentState = initialState, action) {
       return currentState;
 
     case "ADD":
-      return [
-        ...currentState,
-        {
-          id: Date.now(),
-          value: action.text,
-          editable: false,
-          visible: true,
-          checked: false,
-          timestamp: new Date().toLocaleString()
-        }
-      ];
+      return [...currentState, action.todo];
 
     case "EDIT":
       return currentState.map(
