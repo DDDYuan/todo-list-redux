@@ -1,4 +1,4 @@
-const initialState = [{ tasks: [] }];
+const initialState = [];
 
 export default function todos(currentState = initialState, action) {
   switch (action.type) {

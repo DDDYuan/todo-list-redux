@@ -7,6 +7,7 @@ export const removeTodo = id => ({ type: "REMOVE", id });
 export const checkTodo = id => ({ type: "CHECK", id });
 export const filterTodo = filter => ({ type: "FILTER", filter });
 export const initTodoList = list => ({ type: "INIT", list });
+
 export const getTodoList = () => dispatch => {
   fetch("/api/todos")
     .then(response => response.json())
@@ -22,19 +23,19 @@ export const deleteTodo = id => dispatch => {
   });
 };
 export const saveTodo = text => dispatch => {
-  const todo = JSON.stringify({
+  const todo = {
     value: text,
     checked: false,
     timestamp: Date.now(),
     tasks: []
-  });
+  };
   $.ajax({
     url: "/api/todos",
     type: "POST",
     contentType: "application/json",
-    data: todo,
-    success: () => {
-      dispatch({ type: "ADD", todo });
+    data: JSON.stringify(todo),
+    success: result => {
+      dispatch({ type: "ADD", todo: result });
     }
   });
 };
