@@ -5,7 +5,7 @@ import { getTodoList } from "../actions";
 import { connect } from "react-redux";
 
 export class App extends PureComponent {
-  componentDidMount() {
+  componentWillMount() {
     this.props.getTodoList();
   }
 

@@ -14,6 +14,7 @@ import registerServiceWorker from "./registerServiceWorker";
 
 import App from "./components/App";
 import TodoItemInfo from "./components/TodoItemInfo";
+import Login from "./components/Login";
 import reducers from "./reducers";
 
 import "./index.css";
@@ -32,6 +33,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={App} />
         <Route path="/todo/:id" component={TodoItemInfo} />
+        <Route path="/login" component={Login} />
       </Switch>
     </ConnectedRouter>
   </Provider>,
