@@ -64,22 +64,17 @@ export const logOut = () => dispatch => {
   dispatch(push("/login"));
 };
 export const logIn = (username, password) => dispatch => {
-  console.log(username, password);
   $.ajax({
     url: "/api/login",
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify({ username, password }),
     success: result => {
-      console.log(result);
       localStorage.token = result;
-      getUserInfo();
       dispatch(push("/"));
     },
     error: error => {
-      console.log(error);
-
-      alert(error);
+      alert(error.responseJSON.message);
     }
   });
 };
@@ -87,8 +82,11 @@ export const getUserInfo = () => dispatch => {
   $.ajax({
     url: "/api/users/logged",
     type: "GET",
+    headers: {
+      Authorization: localStorage.token
+    },
     success: user => {
-      dispatch(setUser(user.username, user.userId));
+      dispatch(setUser(user.username, user.id));
     }
   });
 };

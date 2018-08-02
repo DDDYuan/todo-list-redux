@@ -1,12 +1,13 @@
 import React, { PureComponent } from "react";
 import Todos from "./Todos";
 import User from "./User";
-import { getTodoList } from "../actions";
+import { getTodoList, getUserInfo } from "../actions";
 import { connect } from "react-redux";
 
 export class App extends PureComponent {
   componentWillMount() {
     this.props.getTodoList();
+    this.props.getUserInfo();
   }
 
   render() {
@@ -22,5 +23,5 @@ export class App extends PureComponent {
 
 export default connect(
   null,
-  { getTodoList }
+  { getTodoList, getUserInfo }
 )(App);
